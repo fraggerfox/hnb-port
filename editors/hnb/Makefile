@@ -1,5 +1,5 @@
 # Created by: Patrick Li <pat@databits.net>
-# $FreeBSD: head/editors/hnb/Makefile 405891 2016-01-12 16:20:31Z amdmi3 $
+# $FreeBSD: head/editors/hnb/Makefile 516188 2019-10-31 18:50:40Z amdmi3 $
 
 PORTNAME=	hnb
 PORTVERSION=	1.9.18
@@ -22,15 +22,20 @@ MAKE_JOBS_UNSAFE=	yes
 PLIST_FILES=	bin/${PORTNAME} \
 		man/man1/${PORTNAME}.1.gz
 PORTDOCS=	*
+PORTEXAMPLES=	*
 
-OPTIONS_DEFINE=	DOCS
+OPTIONS_DEFINE=	DOCS EXAMPLES
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/src/hnb ${STAGEDIR}${PREFIX}/bin
 	${INSTALL_MAN}	${WRKSRC}/doc/hnb.1 ${STAGEDIR}${MAN1PREFIX}/man/man1
-	${MKDIR} ${STAGEDIR}${DOCSDIR}
-.for FILE in Documentation.hnb Documentation.html hnbrc
-	${INSTALL_DATA} ${WRKSRC}/doc/${FILE} ${STAGEDIR}${DOCSDIR}
-.endfor
+
+do-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/doc/Documentation.* ${STAGEDIR}${DOCSDIR}
+
+do-install-EXAMPLES-on:
+	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/doc/hnbrc ${STAGEDIR}${EXAMPLESDIR}
 
 .include <bsd.port.mk>
