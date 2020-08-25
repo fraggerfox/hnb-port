@@ -1,12 +1,12 @@
 # Created by: Patrick Li <pat@databits.net>
-# $FreeBSD: head/editors/hnb/Makefile 516188 2019-10-31 18:50:40Z amdmi3 $
+# $FreeBSD: head/editors/hnb/Makefile 516359 2019-11-02 17:43:21Z amdmi3 $
 
 PORTNAME=	hnb
 PORTVERSION=	1.9.18
 DISTVERSIONPREFIX=	v
 CATEGORIES=	editors
 
-MAINTAINER=	amdmi3@FreeBSD.org
+MAINTAINER=	fox@FreeBSD.org
 COMMENT=	Hierarchical NoteBook a data organizer
 
 LICENSE=	GPLv2+
