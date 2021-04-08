@@ -1,5 +1,4 @@
 # Created by: Patrick Li <pat@databits.net>
-# $FreeBSD: head/editors/hnb/Makefile 516359 2019-11-02 17:43:21Z amdmi3 $
 
 PORTNAME=	hnb
 PORTVERSION=	1.9.18
